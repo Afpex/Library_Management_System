@@ -2,7 +2,7 @@ Library Management System 📚
 
 Overview
 
-This project is a simple Library Management System implemented in C. It incorporates various fundamental concepts such as structures, dynamic memory allocation, file I/O, and a command-line interface for user interaction. This project is ideal for sharpening your software engineering skills and understanding the basics of C programming.
+This project is a simple Library Management System implemented in C. It incorporates various fundamental concepts such as structures, dynamic memory allocation, file I/O, and a command-line interface for user interaction. This project is ideal for sharpening software engineering skills and understanding the basics of C programming.
 
 Features
 Book and User Management: Add, remove, and list books and users.
