@@ -45,3 +45,37 @@ void return_book(Book *books, int num_books, int book_id) {
     }
   }
 }
+
+void save_books(Book *books, int num_books) {
+  FILE *file = fopen("data/books.dat", "wb");
+  fwrite(&num_books, sizeof(int), 1, file);
+  fwrite(books, sizeof(Book), num_books, file);
+  fclose(file);
+}
+
+void load_books(Book **books, int *num_books) {
+  FILE *file = fopen("data/books.dat", "rb");
+  if (file) {
+    fread(num_books, sizeof(int), 1, file);
+    *books = malloc(*num_books * sizeof(Book));
+    fread(*books, sizeof(Book), *num_books, file);
+    fclose(file);
+  }
+}
+
+void save_users(User *users, int num_users) {
+  FILE *file = fopen("data/users.dat", "wb");
+  fwrite(&num_users, sizeof(int), 1, file);
+  fwrite(users, sizeof(User), num_users, file);
+  fclose(file);
+}
+
+void load_users(User **users, int *num_users) {
+  FILE *file = fopen("data/users.dat", "rb");
+  if (file) {
+    fread(num_users, sizeof(int), 1, file);
+    *users = malloc(*num_users * sizeof(User));
+    fread(*users, sizeof(User), *num_users, file);
+    fclose(file);
+  }
+}
