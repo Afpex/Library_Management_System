@@ -1,43 +1,21 @@
 {
+  "version": "2.0.0",
   "tasks": [
     {
+      "type": "shell",
+      "label": "mingw32-make",
+      "command": "mingw32-make",
       "args": [],
-      "command": "make",
-      "detail": "Build the project using Makefile",
-      "group": {
-        "isDefault": true,
-        "kind": "build"
+      "options": {
+        "cwd": "${workspaceFolder}"
       },
-      "label": "build",
       "problemMatcher": [
         "$gcc"
       ],
-      "type": "shell"
-    },
-    {
-      "args": [],
-      "command": "make clean",
-      "detail": "Clean the project",
       "group": {
-        "isDefault": false,
-        "kind": "build"
-      },
-      "label": "clean",
-      "problemMatcher": [
-        "$gcc"
-      ],
-      "type": "shell"
-    },
-    {
-      "command": "./main",
-      "detail": "Run the project",
-      "group": {
-        "isDefault": true,
-        "kind": "test"
-      },
-      "label": "run",
-      "type": "shell"
+        "kind": "build",
+        "isDefault": true
+      }
     }
-  ],
-  "version": "2.0.0"
+  ]
 }
