@@ -20,4 +20,4 @@ src/user.o: src/user.c
 
 clean:
 	del /Q main.exe
-  del /Q src\*.o
+	del /Q src\*.o
