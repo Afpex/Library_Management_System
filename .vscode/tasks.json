@@ -1,0 +1,43 @@
+{
+  "tasks": [
+    {
+      "args": [],
+      "command": "make",
+      "detail": "Build the project using Makefile",
+      "group": {
+        "isDefault": true,
+        "kind": "build"
+      },
+      "label": "build",
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "type": "shell"
+    },
+    {
+      "args": [],
+      "command": "make clean",
+      "detail": "Clean the project",
+      "group": {
+        "isDefault": false,
+        "kind": "build"
+      },
+      "label": "clean",
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "type": "shell"
+    },
+    {
+      "command": "./main",
+      "detail": "Run the project",
+      "group": {
+        "isDefault": true,
+        "kind": "test"
+      },
+      "label": "run",
+      "type": "shell"
+    }
+  ],
+  "version": "2.0.0"
+}
