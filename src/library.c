@@ -16,6 +16,28 @@ void list_books(Book *books, int num_books) {
   }
 }
 
+void edit_book(Book *books, int num_books, int book_id, Book updated_book) {
+  for (int i = 0; i < num_books; i++) {
+    if (books[i].id == book_id) {
+      books[i] = updated_book;
+      return;
+    }
+  }
+}
+
+void delete_book(Book **books, int *num_books, int book_id) {
+  for (int i = 0; i < *num_books; i++) {
+    if ((*books)[i].id == book_id) {
+      for (int j = i; j < *num_books - 1; j++) {
+        (*books)[j] = (*books)[j + 1];
+      }
+      *books = realloc(*books, (*num_books - 1) * sizeof(Book));
+      (*num_books)--;
+      return;
+    }
+  }
+}
+
 void add_user(User **users, int *num_users, User new_user) {
   *users = realloc(*users, (*num_users + 1) * sizeof(User));
   (*users)[*num_users] = new_user;
@@ -25,6 +47,28 @@ void add_user(User **users, int *num_users, User new_user) {
 void list_users(User *users, int num_users) {
   for (int i = 0; i < num_users; i++) {
     printf("ID: %d, Name: %s\n", users[i].id, users[i].name);
+  }
+}
+
+void edit_user(User *users, int num_users, int user_id, User updated_user) {
+  for (int i = 0; i < num_users; i++) {
+    if (users[i].id == user_id) {
+      users[i] = updated_user;
+      return;
+    }
+  }
+}
+
+void delete_user(User **users, int *num_users, int user_id) {
+  for (int i = 0; i < *num_users; i++) {
+    if ((*users)[i].id == user_id) {
+      for (int j = i; j < *num_users - 1; j++) {
+        (*users)[j] = (*users)[j + 1];
+      }
+      *users = realloc(*users, (*num_users - 1) * sizeof(User));
+      (*num_users)--;
+      return;
+    }
   }
 }
 

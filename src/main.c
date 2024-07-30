@@ -7,11 +7,15 @@ void print_menu() {
   printf("Library Management System\n");
   printf("1. Add Book\n");
   printf("2. List Books\n");
-  printf("3. Add User\n");
-  printf("4. List Users\n");
-  printf("5. Check Out Book\n");
-  printf("6. Return Book\n");
-  printf("7. Exit\n");
+  printf("3. Edit Book\n");
+  printf("4. Delete Book\n");
+  printf("5. Add User\n");
+  printf("6. List Users\n");
+  printf("7. Edit User\n");
+  printf("8. Delete User\n");
+  printf("9. Check Out Book\n");
+  printf("10. Return Book\n");
+  printf("11. Exit\n");
 }
 
 int main() {
@@ -27,11 +31,11 @@ int main() {
   while (1) {
     print_menu();
     scanf("%d", &choice);
-    if (choice == 7) break;
+    if (choice == 11) break;
 
     int id;
-    Book new_book;
-    User new_user;
+    Book new_book, updated_book;
+    User new_user, updated_user;
 
     switch (choice) {
       case 1:
@@ -57,15 +61,44 @@ int main() {
         save_users(users, num_users);
         break;  
       case 4:
-        list_users(users, num_users);
+        printf("Enter book ID to delete: ");
+        scanf("%d", &id);
+        delete_book(&books, &num_books, id);
+        save_books(books, num_books);
         break;
       case 5:
+        printf("Enter user ID: ");
+        scanf("%d", &new_user.id);
+        printf("Enter user name: ");
+        scanf("%s", new_user.name);
+        add_user(&users, &num_users, new_user);
+        save_users(users, num_users);
+        break;
+      case 6:
+        list_users(users, num_users);
+        break;
+      case 7:
+        printf("Enter user ID to edit: ");
+        scanf("%d", &id);
+        printf("Enter new user name: ");
+        scanf("%s", updated_user.name);
+        updated_user.id = id;
+        edit_user(users, num_users, id, updated_user);
+        save_users(users, num_users);
+        break;
+      case 8:
+        printf("Enter user ID to delete: ");
+        scanf("%d", &id);
+        delete_user(&users, &num_users, id);
+        save_users(users, num_users);
+        break;
+      case 9:
         printf("Enter book ID to check out: ");
         scanf("%d", &id);
         check_out_book(books, num_books, id);
         save_books(books, num_books);
         break;
-      case 6:
+      case 10:
         printf("Enter book ID to return: ");
         scanf("%d", &id);
         return_book(books, num_books, id);
