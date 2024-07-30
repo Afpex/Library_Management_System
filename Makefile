@@ -19,4 +19,5 @@ src/user.o: src/user.c
 	$(CC) $(CFLAGS) -c src/user.c -o src/user.o
 
 clean:
-	rm -f main src/*.o
+	del /Q main.exe
+  del /Q src\*.o
